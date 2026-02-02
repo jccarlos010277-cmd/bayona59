@@ -3,699 +3,275 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terrazas de Bayona - Alojamiento en La Habana</title>
-    <!-- Carga de Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Configuración de la fuente Inter -->
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f7f7f7; /* Fondo gris claro */
-        }
-        .content-container {
-            max-width: 1200px;
-        }
-        .hero-text-shadow {
-            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
-        }
-        /* Clase inicial para la animación de revelación */
-        .animate-on-scroll {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-        /* Clase para el estado final de la animación */
-        .scrolled-in {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .star-rating label {
-            cursor: pointer;
-            font-size: 1.5rem;
-            color: #d1d5db; /* Color gris de las estrellas */
-            transition: color 0.2s;
-        }
-        .star-rating input:checked ~ label,
-        .star-rating label:hover,
-        .star-rating label:hover ~ label {
-            color: #f59e0b; /* Color amarillo de las estrellas seleccionadas */
-        }
-        .star-rating input {
-            display: none;
-        }
-        /* Para hacer que la calificación sea de derecha a izquierda (estrellas completas al seleccionar) */
-        .star-rating {
-            direction: rtl;
-        }
-        .star-rating > label {
-            display: inline-block;
-        }
-    </style>
+    <title>Bodegón Bayona 59 - Productos Gourmet | La Habana</title>
+    <meta name="description" content="Tienda gourmet en La Habana. Productos alimenticios premium, vinos, conservas y delicatessen. Envíos a toda la ciudad. Calidad y tradición cubana.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body class="text-gray-800">
-
-    <!-- CABECERA Y NAVEGACIÓN -->
-    <header class="bg-white shadow-md sticky top-0 z-20">
-        <div class="content-container mx-auto px-4 py-3 flex justify-between items-center">
-            <!-- Logo/Título del Sitio -->
-            <a href="#" class="text-2xl font-bold text-teal-600 hover:text-teal-800 transition duration-300">
-                Terrazas de Bayona
-            </a>
-            
-            <!-- Contacto Rápido y Menú (Versión Desktop) -->
-            <div class="hidden md:flex items-center space-x-6">
-                <p id="user-id-display-desktop" class="text-xs text-gray-500 font-mono"></p>
-                <a href="#contacto" class="text-sm font-medium text-gray-600 hover:text-teal-600 transition duration-300 scroll-link">
-                    Contáctanos: +53 53893144
+<body>
+    <!-- Header con Navegación -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <span class="logo-text">Bodegón</span>
+                    <span class="logo-subtext">Bayona 59</span>
                 </a>
                 
-                <!-- Selector de Idioma (Simulado) -->
-                <div class="relative group">
-                    <button class="flex items-center space-x-1 text-sm font-semibold text-teal-600">
-                        <span>ES</span>
-                        <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </button>
-                    <div class="absolute right-0 mt-2 w-24 bg-white rounded-lg shadow-xl hidden group-hover:block transition duration-300">
-                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">EN</a>
-                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">IT</a>
-                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">CZ</a>
-                    </div>
+                <div class="nav-links" id="navLinks">
+                    <a href="#inicio">Inicio</a>
+                    <a href="#productos">Productos</a>
+                    <a href="#nosotros">Nosotros</a>
+                    <a href="#contacto">Contacto</a>
+                    <a href="#" class="btn-carrito"><i class="fas fa-shopping-basket"></i> <span class="carrito-count">0</span></a>
                 </div>
-            </div>
-
-            <!-- Botón de Menú Móvil (Hamburguesa) -->
-            <button id="mobile-menu-button" class="md:hidden p-2 text-gray-600 hover:text-teal-600 rounded-lg transition duration-300" aria-label="Menú">
-                <svg id="menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-            </button>
-        </div>
-        
-        <!-- Menú Móvil Desplegable -->
-        <div id="mobile-menu" class="hidden md:hidden px-4 pb-4 bg-gray-50 border-t border-gray-200">
-            <a href="#contacto" class="block py-2 text-sm font-medium text-gray-700 hover:text-teal-600 scroll-link">
-                Contáctanos: +53 53893144
-            </a>
-            <div class="flex space-x-4 mt-2">
-                <a href="#" class="text-sm font-semibold text-teal-600 hover:text-teal-800">ES</a>
-                <a href="#" class="text-sm text-gray-600 hover:text-teal-600">EN</a>
-                <a href="#" class="text-sm text-gray-600 hover:text-teal-600">IT</a>
-                <a href="#" class="text-sm text-gray-600 hover:text-teal-600">CZ</a>
-            </div>
-            <p id="user-id-display-mobile" class="text-xs text-gray-500 font-mono mt-2 pt-2 border-t"></p>
+                
+                <div class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
         </div>
     </header>
 
-    <!-- SECCIÓN PRINCIPAL HERO/BIENVENIDA -->
-    <section class="relative h-[60vh] md:h-[80vh] bg-cover bg-center flex items-center justify-center" 
-             style="background-image: url('https://placehold.co/1200x800/228b7e/ffffff?text=Vista+Panor%C3%A1mica+de+La+Casa');">
-        <!-- Overlay oscuro para mejor legibilidad del texto -->
-        <div class="absolute inset-0 bg-black opacity-40"></div>
+    <!-- Hero Section con efectos -->
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <h1 class="hero-title animate-fade-up">Auténticos Sabores de <span class="highlight">La Habana</span></h1>
+            <p class="hero-subtitle animate-fade-up-delay">Productos gourmet seleccionados con tradición cubana. Envíos a toda la ciudad.</p>
+            <a href="#productos" class="btn-primary animate-fade-up-delay-2">Ver Productos <i class="fas fa-arrow-down"></i></a>
+        </div>
         
-        <div class="relative text-center text-white p-6 animate-on-scroll">
-            <h1 class="text-4xl md:text-6xl font-extrabold mb-4 hero-text-shadow">
-                Terrazas de Bayona
-            </h1>
-            <p class="text-xl md:text-2xl font-light hero-text-shadow max-w-2xl mx-auto">
-                Tu hogar perfecto en La Habana. Comodidad, tranquilidad y una experiencia auténtica.
-            </p>
+        <div class="hero-images">
+            <div class="hero-img img-1 animate-float"></div>
+            <div class="hero-img img-2 animate-float-delay"></div>
+            <div class="hero-img img-3 animate-float-delay-2"></div>
         </div>
     </section>
 
-    <!-- SECCIÓN DE PROPUESTA DE VALOR / UBICACIÓN -->
-    <section class="py-16 bg-white">
-        <div class="content-container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center text-teal-700 mb-12 animate-on-scroll">
-                Ubicación Inmejorable
-            </h2>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
-                <!-- Beneficio 1 -->
-                <div class="p-6 bg-gray-50 rounded-xl shadow-lg hover:shadow-xl transition duration-300 ease-in-out transform hover:translate-y-[-4px] animate-on-scroll">
-                    <div class="text-4xl text-teal-600 mb-3">📍</div>
-                    <p class="font-semibold text-lg">A 10 minutos a pie</p>
-                    <p class="text-gray-600">Del centro de la ciudad de La Habana Vieja.</p>
-                </div>
-                <!-- Beneficio 2 -->
-                <div class="p-6 bg-gray-50 rounded-xl shadow-lg hover:shadow-xl transition duration-300 ease-in-out transform hover:translate-y-[-4px] animate-on-scroll" style="transition-delay: 100ms;">
-                    <div class="text-4xl text-teal-600 mb-3">🍽️</div>
-                    <p class="font-semibold text-lg">Comida Local</p>
-                    <p class="text-gray-600">Excelentes opciones gastronómicas cerca de la propiedad.</p>
-                </div>
-                <!-- Beneficio 3 -->
-                <div class="p-6 bg-gray-50 rounded-xl shadow-lg hover:shadow-xl transition duration-300 ease-in-out transform hover:translate-y-[-4px] animate-on-scroll" style="transition-delay: 200ms;">
-                    <div class="text-4xl text-teal-600 mb-3">🚌</div>
-                    <p class="font-semibold text-lg">Fácil Acceso</p>
-                    <p class="text-gray-600">A solo 10 minutos de la parada de autobús para ir a la playa.</p>
-                </div>
-                <!-- Beneficio 4 -->
-                <div class="p-6 bg-gray-50 rounded-xl shadow-lg hover:shadow-xl transition duration-300 ease-in-out transform hover:translate-y-[-4px] animate-on-scroll" style="transition-delay: 300ms;">
-                    <div class="text-4xl text-teal-600 mb-3">🛍️</div>
-                    <p class="font-semibold text-lg">Mercado y Souvenirs</p>
-                    <p class="text-gray-600">Cerca de mercados de productos frescos y tiendas de recuerdos.</p>
-                </div>
+    <!-- Sección Productos Destacados -->
+    <section class="productos-section" id="productos">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <h2>Nuestros <span class="highlight">Productos</span></h2>
+                <p>Selección cuidadosa de lo mejor para tu mesa</p>
             </div>
             
-            <p class="text-center mt-12 text-xl text-gray-700 font-medium animate-on-scroll" style="transition-delay: 400ms;">
-                En Terrazas de Bayona, todo está pensado para tu comodidad y tranquilidad.
-            </p>
-        </div>
-    </section>
-
-    <!-- SECCIÓN DE SERVICIOS ADICIONALES -->
-    <section class="py-16 bg-gray-100">
-        <div class="content-container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center text-teal-700 mb-12 animate-on-scroll">
-                ¿Qué ofrecemos?
-            </h2>
-
-            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Servicio 1 -->
-                <div class="flex flex-col items-center p-6 bg-white rounded-xl shadow-md transition duration-300 hover:shadow-xl transform hover:scale-[1.02] animate-on-scroll">
-                    <div class="text-5xl text-teal-600 mb-4">✈️</div>
-                    <h3 class="font-semibold text-xl mb-2">Recogida en el aeropuerto</h3>
-                    <p class="text-sm text-center text-gray-600">Te esperamos a tu llegada para un traslado sin estrés.</p>
-                </div>
-                <!-- Servicio 2 -->
-                <div class="flex flex-col items-center p-6 bg-white rounded-xl shadow-md transition duration-300 hover:shadow-xl transform hover:scale-[1.02] animate-on-scroll" style="transition-delay: 100ms;">
-                    <div class="text-5xl text-teal-600 mb-4">🔑</div>
-                    <h3 class="font-semibold text-xl mb-2">Habitaciones en alquiler</h3>
-                    <p class="text-sm text-center text-gray-600">Habitaciones privadas y muy espaciosas, perfectas para descansar.</p>
-                </div>
-                <!-- Servicio 3 -->
-                <div class="flex flex-col items-center p-6 bg-white rounded-xl shadow-md transition duration-300 hover:shadow-xl transform hover:scale-[1.02] animate-on-scroll" style="transition-delay: 200ms;">
-                    <div class="text-5xl text-teal-600 mb-4">🚗</div>
-                    <h3 class="font-semibold text-xl mb-2">Tour por La Habana</h3>
-                    <p class="text-sm text-center text-gray-600">Descubre la ciudad en un coche clásico, una experiencia inolvidable.</p>
-                </div>
-                <!-- Servicio 4 -->
-                <div class="flex flex-col items-center p-6 bg-white rounded-xl shadow-md transition duration-300 hover:shadow-xl transform hover:scale-[1.02] animate-on-scroll" style="transition-delay: 300ms;">
-                    <div class="text-5xl text-teal-600 mb-4">🍳</div>
-                    <h3 class="font-semibold text-xl mb-2">Desayuno y almuerzo</h3>
-                    <p class="text-sm text-center text-gray-600">Comidas frescas preparadas con cuidado por los anfitriones.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECCIÓN SOBRE NOSOTROS -->
-    <section class="py-16 bg-white">
-        <div class="content-container mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
-            
-            <!-- Imagen Placeholder de los Anfitriones -->
-            <div class="order-2 md:order-1 animate-on-scroll">
-                <img src="https://placehold.co/600x400/80cbc4/000000?text=Alexander+e+Isaida" 
-                     alt="Foto de Alexander e Isaida, los anfitriones"
-                     class="w-full h-auto rounded-xl shadow-2xl object-cover transition duration-500 ease-in-out">
-            </div>
-
-            <!-- Contenido del Anfitrión -->
-            <div class="order-1 md:order-2 animate-on-scroll" style="transition-delay: 200ms;">
-                <h2 class="text-3xl font-bold text-teal-700 mb-4">Sobre nosotros</h2>
-                <p class="text-gray-700 mb-4 leading-relaxed">
-                    Somos Alexander e Isaida, una pareja con 16 años de casados a la que nos encanta compartir nuestras pasiones y crear un ambiente cálido y acogedor para los demás. Disfrutamos cocinando y preparando comidas con cuidado.
-                </p>
-                <p class="text-gray-700 mb-4 leading-relaxed">
-                    Realmente valoramos la comodidad de estar en casa. Viajar y descubrir nuevos lugares juntos es una de nuestras mayores alegrías, ya que nos permite explorar, aprender y crecer codo a codo.
-                </p>
-                <p class="text-gray-700 font-medium leading-relaxed">
-                    Como pareja, somos hospitalarios, generosos y comunicativos, lo que nos ayuda a conectarnos de forma natural con los demás y a hacerlos sentir como en casa.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECCIÓN DE GALERÍA Y DESCRIPCIÓN DEL ALOJAMIENTO -->
-    <section class="py-16 bg-gray-50">
-        <div class="content-container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center text-teal-700 mb-12 animate-on-scroll">
-                ¡Mira la casa!
-            </h2>
-
-            <!-- Descripción del Alojamiento -->
-            <div class="max-w-4xl mx-auto text-center mb-12 p-6 bg-white rounded-xl shadow-lg animate-on-scroll" style="transition-delay: 100ms;">
-                <p class="text-lg text-gray-700 leading-relaxed">
-                    ¡Bienvenido a nuestra hermosa casa de alquiler! Nuestras habitaciones cuentan con dos camas, un amplio baño completamente privado, una cocina y un comedor compartidos, y **dos terrazas privadas** para disfrutar del sol. 
-                </p>
-                <p class="mt-4 text-lg font-semibold text-teal-600">
-                    Ubicada en una zona tranquila y segura de La Habana Vieja, es perfecta para viajeros que buscan una experiencia auténtica. ¡Reserva ahora y vive la experiencia única!
-                </p>
-            </div>
-
-            <!-- Galería de Fotos (Imágenes Placeholder) -->
-            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
-                <!-- Se muestran 10 placeholders para simular la galería original -->
-                <!-- Añado la clase animate-on-scroll a cada imagen con un retraso gradual -->
-                <div class="aspect-video rounded-lg overflow-hidden shadow-lg transform hover:scale-[1.05] transition duration-300 animate-on-scroll" style="transition-delay: 200ms;">
-                    <img src="https://placehold.co/300x200/4db6ac/ffffff?text=Habitaci%C3%B3n+1" alt="Imagen de la habitación" class="w-full h-full object-cover">
-                </div>
-                <div class="aspect-video rounded-lg overflow-hidden shadow-lg transform hover:scale-[1.05] transition duration-300 animate-on-scroll" style="transition-delay: 250ms;">
-                    <img src="https://placehold.co/300x200/4db6ac/ffffff?text=Ba%C3%B1o+Privado" alt="Imagen del baño privado" class="w-full h-full object-cover">
-                </div>
-                <div class="aspect-video rounded-lg overflow-hidden shadow-lg transform hover:scale-[1.05] transition duration-300 animate-on-scroll" style="transition-delay: 300ms;">
-                    <img src="https://placehold.co/300x200/4db6ac/ffffff?text=Terraza+Superior" alt="Imagen de la terraza superior" class="w-full h-full object-cover">
-                </div>
-                <div class="aspect-video rounded-lg overflow-hidden shadow-lg transform hover:scale-[1.05] transition duration-300 animate-on-scroll" style="transition-delay: 350ms;">
-                    <img src="https://placehold.co/300x200/4db6ac/ffffff?text=Comedor" alt="Imagen del comedor compartido" class="w-full h-full object-cover">
-                </div>
-                <div class="aspect-video rounded-lg overflow-hidden shadow-lg transform hover:scale-[1.05] transition duration-300 animate-on-scroll" style="transition-delay: 400ms;">
-                    <img src="https://placehold.co/300x200/4db6ac/ffffff?text=Exterior" alt="Imagen del exterior de la casa" class="w-full h-full object-cover">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECCIÓN DE INSTALACIONES Y PRECIOS -->
-    <section class="py-16 bg-white">
-        <div class="content-container mx-auto px-4 grid md:grid-cols-2 gap-12">
-            
-            <!-- Instalaciones -->
-            <div class="animate-on-scroll">
-                <h3 class="text-2xl font-bold text-teal-700 mb-6">Instalaciones de Alojamiento</h3>
-                <ul class="grid grid-cols-2 gap-y-4 text-gray-700">
-                    <li class="flex items-center"><span class="text-teal-500 mr-2">✔️</span>Agua caliente</li>
-                    <li class="flex items-center"><span class="text-teal-500 mr-2">✔️</span>Aire acondicionado</li>
-                    <li class="flex items-center"><span class="text-teal-500 mr-2">✔️</span>2 terrazas compartidas</li>
-                    <li class="flex items-center"><span class="text-teal-500 mr-2">✔️</span>Colchones nuevos</li>
-                    <li class="flex items-center"><span class="text-teal-500 mr-2">✔️</span>Baño privado</li>
-                    <li class="flex items-center"><span class="text-teal-500 mr-2">✔️</span>Lavadora</li>
-                    <li class="flex items-center"><span class="text-teal-500 mr-2">✔️</span>Wi-Fi de alta velocidad</li>
-                    <li class="flex items-center"><span class="text-teal-500 mr-2">✔️</span>Televisión</li>
-                    <li class="flex items-center"><span class="text-teal-500 mr-2">✔️</span>Cocina compartida</li>
-                    <li class="flex items-center"><span class="text-teal-500 mr-2">✔️</span>Caja fuerte</li>
-                    <li class="flex items-center"><span class="text-teal-500 mr-2">✔️</span>Secadora</li>
-                    <li class="flex items-center"><span class="text-teal-500 mr-2">✔️</span>Y más...</li>
-                </ul>
-            </div>
-
-            <!-- Precios -->
-            <div id="precios" class="animate-on-scroll" style="transition-delay: 200ms;">
-                <h3 class="text-2xl font-bold text-teal-700 mb-6">Precios del Alojamiento</h3>
-                <div class="bg-teal-50 p-6 rounded-xl shadow-lg transition duration-300 hover:shadow-2xl">
-                    <p class="text-xl font-semibold mb-4 text-teal-800">1 habitación (con baño y aire acondicionado):</p>
-                    <ul class="space-y-3 text-gray-700">
-                        <li class="flex justify-between border-b pb-2">
-                            <span class="font-medium">1-6 noches:</span>
-                            <span class="font-bold text-teal-600">25 USD/noche</span>
-                        </li>
-                        <li class="flex justify-between border-b pb-2">
-                            <span class="font-medium">1-2 semanas:</span>
-                            <span class="font-bold text-teal-600">20 USD/noche</span>
-                        </li>
-                        <li class="flex justify-between">
-                            <span class="font-medium">15+ noches:</span>
-                            <span class="font-bold text-teal-600">15 USD/noche</span>
-                        </li>
-                    </ul>
-                </div>
-                <p class="mt-4 text-sm text-gray-600">
-                    También ofrecemos servicios adicionales (desayuno, lavandería, agua potable, etc.). Por favor, contáctenos para más información.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECCIÓN DE AÑADIR OPINIÓN (NUEVO) -->
-    <section id="review-form-section" class="py-16 bg-white border-t border-gray-200">
-        <div class="content-container mx-auto px-4 max-w-2xl">
-            <h2 class="text-3xl font-bold text-center text-teal-700 mb-10 animate-on-scroll">
-                ¡Añade tu Opinión!
-            </h2>
-            <form id="review-form" class="p-8 bg-gray-50 rounded-xl shadow-2xl animate-on-scroll" style="transition-delay: 100ms;">
-                <div class="mb-6">
-                    <label for="review-name" class="block text-lg font-medium text-gray-700 mb-2">Tu Nombre/Apodo (Opcional)</label>
-                    <input type="text" id="review-name" placeholder="Ej: Viajero Feliz" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-teal-500 focus:border-teal-500 transition duration-300">
-                </div>
-
-                <div class="mb-6">
-                    <span class="block text-lg font-medium text-gray-700 mb-2">Tu Calificación</span>
-                    <div class="star-rating text-center">
-                        <!-- 5 Stars, reversed order for CSS trick -->
-                        <input type="radio" id="star5" name="rating" value="5" required><label for="star5" title="5 estrellas">★</label>
-                        <input type="radio" id="star4" name="rating" value="4"><label for="star4" title="4 estrellas">★</label>
-                        <input type="radio" id="star3" name="rating" value="3"><label for="star3" title="3 estrellas">★</label>
-                        <input type="radio" id="star2" name="rating" value="2"><label for="star2" title="2 estrellas">★</label>
-                        <input type="radio" id="star1" name="rating" value="1"><label for="star1" title="1 estrella">★</label>
+            <div class="productos-grid">
+                <!-- Producto 1 -->
+                <div class="producto-card animate-on-scroll">
+                    <div class="producto-img">
+                        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Café cubano premium" loading="lazy">
+                        <span class="producto-badge">Nuevo</span>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Café Cubano Premium</h3>
+                        <p class="producto-desc">Café 100% arábico cultivado en las montañas de Cuba.</p>
+                        <div class="producto-precio">$15.99 <span class="producto-unidad">/ 500g</span></div>
+                        <button class="btn-agregar" data-producto="cafe-cubano" data-precio="15.99">
+                            <i class="fas fa-plus"></i> Añadir al carrito
+                        </button>
                     </div>
                 </div>
-
-                <div class="mb-6">
-                    <label for="review-text" class="block text-lg font-medium text-gray-700 mb-2">Tu Reseña</label>
-                    <textarea id="review-text" rows="4" required placeholder="Escribe aquí tu experiencia..." class="w-full p-3 border border-gray-300 rounded-lg focus:ring-teal-500 focus:border-teal-500 transition duration-300"></textarea>
+                
+                <!-- Producto 2 -->
+                <div class="producto-card animate-on-scroll">
+                    <div class="producto-img">
+                        <img src="https://images.unsplash.com/photo-1553361371-9b22f78e8b1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Ron añejo cubano" loading="lazy">
+                    </div>
+                    <div class="producto-info">
+                        <h3>Ron Añejo 7 Años</h3>
+                        <p class="producto-desc">Ron cubano envejido en barricas de roble. Sabor suave y aromático.</p>
+                        <div class="producto-precio">$24.99 <span class="producto-unidad">/ 750ml</span></div>
+                        <button class="btn-agregar" data-producto="ron-anejo" data-precio="24.99">
+                            <i class="fas fa-plus"></i> Añadir al carrito
+                        </button>
+                    </div>
                 </div>
                 
-                <button type="submit" class="w-full py-3 text-lg font-bold bg-teal-600 hover:bg-teal-700 text-white rounded-lg shadow-lg transition duration-300 transform hover:scale-[1.01]">
-                    Enviar Opinión
-                </button>
-            </form>
-            <p id="form-message" class="mt-4 text-center font-semibold hidden"></p>
-        </div>
-    </section>
-
-    <!-- SECCIÓN DE TESTIMONIOS -->
-    <section class="py-16 bg-gray-100">
-        <div class="content-container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center text-teal-700 mb-12 animate-on-scroll">
-                Lo que dicen nuestros huéspedes
-            </h2>
+                <!-- Producto 3 -->
+                <div class="producto-card animate-on-scroll">
+                    <div class="producto-img">
+                        <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Miel natural cubana" loading="lazy">
+                        <span class="producto-badge destacado">Destacado</span>
+                    </div>
+                    <div class="producto-info">
+                        <h3>Miel Natural Pura</h3>
+                        <p class="producto-desc">Miel 100% natural de abejas cubanas. Sin aditivos ni conservantes.</p>
+                        <div class="producto-precio">$9.99 <span class="producto-unidad">/ 350g</span></div>
+                        <button class="btn-agregar" data-producto="miel-natural" data-precio="9.99">
+                            <i class="fas fa-plus"></i> Añadir al carrito
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Producto 4 -->
+                <div class="producto-card animate-on-scroll">
+                    <div class="producto-img">
+                        <img src="https://images.unsplash.com/photo-1594041680534-e8c8cdebd659?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Conservas artesanales" loading="lazy">
+                    </div>
+                    <div class="producto-info">
+                        <h3>Conservas Artesanales</h3>
+                        <p class="producto-desc">Selección de conservas caseras: vegetales, frutas y condimentos.</p>
+                        <div class="producto-precio">$12.50 <span class="producto-unidad">/ unidad</span></div>
+                        <button class="btn-agregar" data-producto="conservas" data-precio="12.50">
+                            <i class="fas fa-plus"></i> Añadir al carrito
+                        </button>
+                    </div>
+                </div>
+            </div>
             
-            <!-- Contenedor donde se cargarán dinámicamente las opiniones -->
-            <div id="reviews-container" class="grid lg:grid-cols-2 gap-8 justify-center">
-                <!-- Las opiniones se insertarán aquí por JavaScript -->
-                <div id="loading-message" class="lg:col-span-2 text-center text-gray-500">Cargando opiniones...</div>
+            <div class="text-center animate-on-scroll">
+                <a href="#catalogo" class="btn-secondary">Ver Catálogo Completo</a>
             </div>
         </div>
     </section>
 
-    <!-- SECCIÓN DE CONTACTO/LLAMADA A LA ACCIÓN -->
-    <section id="contacto" class="py-16 bg-teal-600 text-white">
-        <div class="content-container mx-auto px-4 text-center animate-on-scroll">
-            <h2 class="text-3xl md:text-4xl font-extrabold mb-4">
-                ¿Listo para vivir las vacaciones de tus sueños en Cuba?
-            </h2>
-            <p class="text-xl font-light mb-8">
-                No lo dudes y contáctanos.
-            </p>
-            
-            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
-                <!-- Botón de WhatsApp -->
-                <a href="https://wa.me/53893144" target="_blank" class="inline-flex items-center justify-center px-8 py-3 text-lg font-bold bg-green-500 hover:bg-green-600 text-white rounded-full shadow-lg transition duration-300 transform hover:scale-105">
-                    <svg class="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.477 2 2 6.477 2 12c0 3.321 1.585 6.301 4.072 8.019l-.538 1.981 2.03-1.071c.783.21 1.625.322 2.5.322 5.523 0 10-4.477 10-10S17.523 2 12 2zm3.332 14.502c-.225.418-.532.428-1.01.218-.477-.21-.767-.34-.955-.425-.188-.085-.357-.107-.577.107-.22.215-.46.522-.676.762-.216.24-.436.262-.803.085-.367-.177-1.452-.533-2.768-1.706-1.026-.913-1.718-2.033-1.916-2.378-.198-.345-.019-.533.158-.7.177-.168.397-.43.593-.64.195-.21.26-.35.395-.583.134-.233.067-.43-.033-.615-.1-.185-.898-2.164-1.233-2.95-.335-.786-.67-.674-.955-.674-.285 0-.61.042-.937.085-.327.042-1.22.424-1.77.937-.55.513-.778 1.25-.778 2.035 0 .785.454 2.196 1.306 3.475 1.155 1.702 2.518 2.873 3.738 3.524 1.22.651 2.45.74 3.376.592.926-.148 1.94-.799 2.21-1.01.27-.21.27-.397.185-.592z"/></svg>
-                    WhatsApp: +53893144
-                </a>
-
-                <!-- Enlace de Email -->
-                <a href="mailto:alexanderacensio1234@gmail.com" class="inline-flex items-center justify-center px-8 py-3 text-lg font-bold bg-teal-700 hover:bg-teal-800 text-white rounded-full shadow-lg transition duration-300 transform hover:scale-105">
-                    <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8m-2 4v7a2 2 0 01-2 2H5a2 2 0 01-2-2v-7"></path></svg>
-                    Correo electrónico
-                </a>
+    <!-- Sección Nosotros -->
+    <section class="nosotros-section" id="nosotros">
+        <div class="container">
+            <div class="nosotros-grid">
+                <div class="nosotros-img animate-on-scroll">
+                    <img src="https://images.unsplash.com/photo-1556909114-ff35346a06f9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Interior Bodegón Bayona 59" loading="lazy">
+                </div>
+                <div class="nosotros-content animate-on-scroll">
+                    <h2>Nuestra <span class="highlight">Historia</span> en La Habana</h2>
+                    <p>Desde nuestra ubicación en <strong>Bayona 59, La Habana</strong>, nos dedicamos a seleccionar los mejores productos gourmet con sello cubano.</p>
+                    <p>Somos un puente entre la tradición local y los paladares exigentes, ofreciendo calidad, autenticidad y el sabor único de nuestra tierra.</p>
+                    <div class="nosotros-stats">
+                        <div class="stat">
+                            <div class="stat-num" data-count="150">0</div>
+                            <div class="stat-label">Productos</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-num" data-count="12">0</div>
+                            <div class="stat-label">Años</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-num" data-count="2000">0</div>
+                            <div class="stat-label">Clientes</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- PIE DE PÁGINA (FOOTER) -->
-    <footer class="bg-gray-800 text-white py-6">
-        <div class="content-container mx-auto px-4 flex flex-col md:flex-row justify-between items-center text-center md:text-left">
-            <p class="text-sm">&copy; 2025 Terrazas de Bayona (Clon Estructural Dinámico).</p>
-            <div class="mt-3 md:mt-0 text-sm space-x-4">
-                <a href="#" class="hover:text-teal-400 transition duration-300">Aviso Legal (Placeholder)</a>
-                <a href="#" class="hover:text-teal-400 transition duration-300">Política de Privacidad (Placeholder)</a>
+    <!-- Sección Contacto y Localización -->
+    <section class="contacto-section" id="contacto">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <h2>Visítanos en <span class="highlight">La Habana</span></h2>
+                <p>Ven a conocer nuestros productos directamente en nuestra bodega</p>
+            </div>
+            
+            <div class="contacto-grid">
+                <div class="contacto-info animate-on-scroll">
+                    <h3><i class="fas fa-map-marker-alt"></i> Nuestra Ubicación</h3>
+                    <p><strong>Bodegón Bayona 59</strong><br>
+                    Calle Bayona #59, La Habana, Cuba</p>
+                    
+                    <h3><i class="fas fa-clock"></i> Horarios</h3>
+                    <p>Lunes a Viernes: 9:00 AM - 6:00 PM<br>
+                    Sábados: 9:00 AM - 2:00 PM<br>
+                    Domingos: Cerrado</p>
+                    
+                    <h3><i class="fas fa-phone-alt"></i> Contacto</h3>
+                    <p>Teléfono: +53 123 456 78<br>
+                    WhatsApp: +53 987 654 32<br>
+                    Email: info@bodegonbayona59.cu</p>
+                    
+                    <div class="whatsapp-cta">
+                        <a href="https://wa.me/5398765432" class="btn-whatsapp" target="_blank">
+                            <i class="fab fa-whatsapp"></i> Pedir por WhatsApp
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="mapa animate-on-scroll">
+                    <!-- Mapa de Google Maps embed -->
+                    <div class="mapa-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3670.693580932938!2d-82.39165592504026!3d23.099126079136407!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88cd7e8c8b9a3c3b%3A0x5c81c165184b2f0c!2sLa%20Habana%2C%20Cuba!5e0!3m2!1ses!2ses!4v1698281738280!5m2!1ses!2ses" 
+                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Ubicación Bodegón Bayona 59 en La Habana"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Carrito Flotante -->
+    <div class="carrito-flotante" id="carritoFlotante">
+        <div class="carrito-header">
+            <h3><i class="fas fa-shopping-basket"></i> Tu Carrito</h3>
+            <button class="cerrar-carrito" id="cerrarCarrito">&times;</button>
+        </div>
+        <div class="carrito-items" id="carritoItems">
+            <!-- Items se añaden dinámicamente -->
+            <p class="carrito-vacio">Tu carrito está vacío</p>
+        </div>
+        <div class="carrito-footer">
+            <div class="carrito-total">
+                Total: $<span id="carritoTotal">0.00</span>
+            </div>
+            <button class="btn-checkout" id="checkoutBtn">Finalizar Compra</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo">
+                        <span class="logo-text">Bodegón</span>
+                        <span class="logo-subtext">Bayona 59</span>
+                    </div>
+                    <p>Productos gourmet cubanos de la más alta calidad. Tradición y sabor en cada producto.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#productos">Productos</a></li>
+                        <li><a href="#nosotros">Nosotros</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Políticas</h4>
+                    <ul>
+                        <li><a href="#">Términos y condiciones</a></li>
+                        <li><a href="#">Política de privacidad</a></li>
+                        <li><a href="#">Envíos y entregas</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Suscríbete</h4>
+                    <p>Recibe nuestras ofertas y novedades</p>
+                    <form class="newsletter-form" id="newsletterForm">
+                        <input type="email" placeholder="Tu correo electrónico" required>
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 Bodegón Bayona 59 - La Habana, Cuba. Todos los derechos reservados.</p>
+                <p class="seo-text">Tienda online de productos gourmet cubanos | Venta de café cubano, ron añejo, miel natural y conservas artesanales | Envíos a toda La Habana | Dirección: Bayona 59, La Habana Vieja</p>
             </div>
         </div>
     </footer>
 
-    <!-- LÓGICA DE JAVASCRIPT PARA DINAMISMO Y FIREBASE -->
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-        import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-        import { getFirestore, collection, addDoc, onSnapshot, query, orderBy, serverTimestamp, setLogLevel, doc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
-
-        // --- Firebase Globals and Setup (MANDATORY) ---
-        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
-        const firebaseConfig = JSON.parse(typeof __firebase_config !== 'undefined' ? __firebase_config : '{}');
-        const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
-
-        let app;
-        let db;
-        let auth;
-        let userId = 'initializing';
-        let isAuthReady = false;
-
-        setLogLevel('debug'); // Enable detailed logging
-
-        /**
-         * Inicializa Firebase, autentica al usuario y carga las opiniones.
-         */
-        async function initFirebase() {
-            if (Object.keys(firebaseConfig).length === 0) {
-                console.error("Firebase config is missing.");
-                return;
-            }
-
-            try {
-                app = initializeApp(firebaseConfig);
-                db = getFirestore(app);
-                auth = getAuth(app);
-                
-                // Sign in the user
-                if (initialAuthToken) {
-                    await signInWithCustomToken(auth, initialAuthToken);
-                } else {
-                    await signInAnonymously(auth);
-                }
-
-                // Wait for auth state change to confirm user ID
-                onAuthStateChanged(auth, (user) => {
-                    if (user) {
-                        userId = user.uid;
-                    } else {
-                        userId = 'anonymous-' + crypto.randomUUID();
-                    }
-                    isAuthReady = true;
-                    console.log("Firebase initialized. User ID:", userId);
-                    
-                    // Display User ID on the UI
-                    document.getElementById('user-id-display-desktop').textContent = `ID: ${userId}`;
-                    document.getElementById('user-id-display-mobile').textContent = `ID: ${userId}`;
-
-                    // Load reviews after successful authentication
-                    loadReviews();
-                });
-
-            } catch (error) {
-                console.error("Error during Firebase initialization or sign-in:", error);
-                isAuthReady = true; // Still set to true to attempt loading reviews anonymously if rules allow
-                loadReviews();
-            }
-        }
-
-        /**
-         * Genera la estructura HTML para una estrella.
-         * @param {number} rating El valor de la calificación (1 a 5).
-         * @returns {string} HTML de las estrellas.
-         */
-        function getStarHTML(rating) {
-            const fullStar = '★';
-            const emptyStar = '☆';
-            return fullStar.repeat(rating) + emptyStar.repeat(5 - rating);
-        }
-
-        /**
-         * Renderiza las opiniones en el contenedor.
-         * @param {Array<Object>} reviews La lista de objetos de opinión.
-         */
-        function renderReviews(reviews) {
-            const container = document.getElementById('reviews-container');
-            container.innerHTML = ''; // Clear existing content
-
-            if (reviews.length === 0) {
-                container.innerHTML = `<p class="lg:col-span-2 text-center text-gray-500">Aún no hay opiniones. ¡Sé el primero en dejar una!</p>`;
-                return;
-            }
-            
-            reviews.forEach((review, index) => {
-                const reviewElement = document.createElement('div');
-                reviewElement.className = `p-8 bg-white rounded-xl shadow-lg border-t-4 border-teal-500 transition duration-500 hover:shadow-xl animate-on-scroll`;
-                reviewElement.style.transitionDelay = `${100 * index}ms`;
-                
-                // Content generation
-                reviewElement.innerHTML = `
-                    <div class="text-4xl text-yellow-500 mb-3 text-center" aria-label="Calificación: ${review.rating} de 5">
-                        ${getStarHTML(review.rating)}
-                    </div>
-                    <p class="italic text-gray-700 text-center mb-4 leading-relaxed">
-                        "${review.reviewText}"
-                    </p>
-                    <p class="font-semibold text-right text-teal-600">- ${review.name}</p>
-                    <p class="text-xs text-gray-400 text-right mt-1">
-                        Publicado por: ${review.authorId ? review.authorId : 'Anónimo'}
-                    </p>
-                `;
-                container.appendChild(reviewElement);
-                
-                // Apply scroll animation class immediately if not animating yet (for initial load)
-                if (!reviewElement.classList.contains('scrolled-in')) {
-                    setTimeout(() => {
-                        reviewElement.classList.add('scrolled-in');
-                    }, 50); 
-                }
-            });
-        }
-
-        /**
-         * Carga las opiniones desde Firestore en tiempo real (onSnapshot).
-         */
-        function loadReviews() {
-            if (!db || !isAuthReady) return; // Guard clause
-
-            const reviewsPath = `/artifacts/${appId}/public/data/reviews`;
-            const q = query(collection(db, reviewsPath)); // Ordenar por fecha de creación si estuviera disponible, pero usar solo el query simple para evitar errores de índice.
-
-            onSnapshot(q, (snapshot) => {
-                const reviews = [];
-                snapshot.forEach((doc) => {
-                    const data = doc.data();
-                    // Basic data validation and mapping
-                    reviews.push({
-                        id: doc.id,
-                        name: data.name || 'Anónimo',
-                        rating: parseInt(data.rating) || 5,
-                        reviewText: data.reviewText || 'Sin reseña.',
-                        authorId: data.authorId || null,
-                        timestamp: data.timestamp ? data.timestamp.toDate() : new Date()
-                    });
-                });
-                // Sort the reviews by date (newest first) in memory
-                reviews.sort((a, b) => b.timestamp - a.timestamp);
-                renderReviews(reviews);
-            }, (error) => {
-                console.error("Error fetching reviews:", error);
-                document.getElementById('reviews-container').innerHTML = `<p class="lg:col-span-2 text-center text-red-500">Error al cargar opiniones: ${error.message}</p>`;
-            });
-        }
-
-        /**
-         * Maneja el envío del formulario de opinión.
-         */
-        async function handleReviewSubmit(e) {
-            e.preventDefault();
-
-            if (!db || !isAuthReady) {
-                console.error("Database not initialized or authentication not ready.");
-                showMessage("La aplicación no está lista aún. Por favor, inténtalo de nuevo.", 'red');
-                return;
-            }
-
-            const nameInput = document.getElementById('review-name');
-            const ratingInput = document.querySelector('input[name="rating"]:checked');
-            const reviewTextInput = document.getElementById('review-text');
-            const formMessage = document.getElementById('form-message');
-
-            if (!ratingInput) {
-                showMessage("Por favor, selecciona una calificación con estrellas.", 'orange');
-                return;
-            }
-            if (!reviewTextInput.value.trim()) {
-                showMessage("Por favor, escribe tu reseña.", 'orange');
-                return;
-            }
-
-            const newReview = {
-                name: nameInput.value.trim() || 'Huésped Anónimo',
-                rating: parseInt(ratingInput.value),
-                reviewText: reviewTextInput.value.trim(),
-                authorId: userId,
-                timestamp: serverTimestamp() // Use server timestamp for accuracy
-            };
-
-            try {
-                const reviewsPath = `/artifacts/${appId}/public/data/reviews`;
-                await addDoc(collection(db, reviewsPath), newReview);
-                showMessage("¡Gracias! Tu opinión ha sido enviada con éxito. 😊", 'green');
-                // Clear the form
-                nameInput.value = '';
-                reviewTextInput.value = '';
-                document.querySelectorAll('input[name="rating"]').forEach(radio => radio.checked = false);
-
-            } catch (error) {
-                console.error("Error adding review:", error);
-                showMessage(`Error al enviar la opinión: ${error.message}`, 'red');
-            }
-        }
-
-        /**
-         * Muestra mensajes de estado temporal.
-         */
-        function showMessage(text, color) {
-            const formMessage = document.getElementById('form-message');
-            formMessage.textContent = text;
-            formMessage.className = `mt-4 text-center font-semibold p-3 rounded-lg bg-${color}-100 text-${color}-800`;
-            formMessage.classList.remove('hidden');
-            setTimeout(() => {
-                formMessage.classList.add('hidden');
-            }, 5000);
-        }
-
-        // --- Lógica de la interfaz (sin Firebase) ---
-        document.addEventListener('DOMContentLoaded', () => {
-            // Inicializar Firebase y la carga de datos
-            initFirebase();
-
-            // Asignar el manejador de envío al formulario de opinión
-            const reviewForm = document.getElementById('review-form');
-            if (reviewForm) {
-                reviewForm.addEventListener('submit', handleReviewSubmit);
-            }
-
-            // --- 1. Lógica del Menú Móvil (Hamburger) ---
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
-            const menuIcon = document.getElementById('menu-icon');
-
-            mobileMenuButton.addEventListener('click', () => {
-                const isHidden = mobileMenu.classList.toggle('hidden');
-                
-                // Cambiar el ícono de hamburguesa a X y viceversa
-                if (!isHidden) {
-                    // Muestra: usa el ícono X
-                    menuIcon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>`; 
-                } else {
-                    // Oculta: usa el ícono Hamburger
-                    menuIcon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>`;
-                }
-            });
-
-            // Ocultar el menú móvil si se hace clic en un enlace
-            document.querySelectorAll('.scroll-link').forEach(link => {
-                link.addEventListener('click', () => {
-                    if (!mobileMenu.classList.contains('hidden')) {
-                         mobileMenu.classList.add('hidden');
-                         menuIcon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>`;
-                    }
-                });
-            });
-
-
-            // --- 2. Desplazamiento Suave (Smooth Scroll) ---
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-
-                    const targetId = this.getAttribute('href').substring(1);
-                    const targetElement = document.getElementById(targetId);
-
-                    if (targetElement) {
-                        window.scroll({
-                            top: targetElement.offsetTop - 70, // Ajuste para la cabecera fija
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
-
-
-            // --- 3. Animación de Revelación al Desplazarse (Scroll Reveal) ---
-            const elementsToAnimate = document.querySelectorAll('.animate-on-scroll');
-
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        // El elemento está visible, añadir la clase final
-                        entry.target.classList.add('scrolled-in');
-                        // Dejar de observar el elemento una vez animado
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, {
-                // Opciones del observador: animar cuando el 10% del elemento sea visible
-                threshold: 0.1 
-            });
-
-            // Observar cada elemento
-            elementsToAnimate.forEach(element => {
-                observer.observe(element);
-            });
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
-
