@@ -3,155 +3,234 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bodegón Bayona 59 - Productos Gourmet | La Habana</title>
-    <meta name="description" content="Tienda gourmet en La Habana. Productos alimenticios premium, vinos, conservas y delicatessen. Envíos a toda la ciudad. Calidad y tradición cubana.">
+    <title>Bodegón Bayona 59 | Combos y Productos en La Habana</title>
+    <meta name="description" content="Tienda online de combos de productos. Compra cavillas de acero, combos de alimentos y productos del mercado. Envíos en La Habana.">
+    
+    <!-- Estilos -->
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
 </head>
 <body>
-    <!-- Header con Navegación -->
+    <!-- Header -->
     <header class="header">
         <div class="container">
-            <nav class="navbar">
-                <a href="index.html" class="logo">
-                    <span class="logo-text">Bodegón</span>
-                    <span class="logo-subtext">Bayona 59</span>
+            <div class="header-content">
+                <a href="#" class="logo">
+                    <div class="logo-icon">🛒</div>
+                    <div class="logo-text">
+                        <span class="logo-main">BODEGÓN</span>
+                        <span class="logo-sub">BAYONA 59</span>
+                    </div>
                 </a>
                 
-                <div class="nav-links" id="navLinks">
-                    <a href="#inicio">Inicio</a>
-                    <a href="#productos">Productos</a>
-                    <a href="#nosotros">Nosotros</a>
-                    <a href="#contacto">Contacto</a>
-                    <a href="#" class="btn-carrito"><i class="fas fa-shopping-basket"></i> <span class="carrito-count">0</span></a>
-                </div>
+                <nav class="nav">
+                    <a href="#inicio" class="nav-link active"><i class="fas fa-home"></i> Inicio</a>
+                    <a href="#combos" class="nav-link"><i class="fas fa-box"></i> Combos</a>
+                    <a href="#construccion" class="nav-link"><i class="fas fa-hammer"></i> Construcción</a>
+                    <a href="#mercado" class="nav-link"><i class="fas fa-store"></i> Mercado</a>
+                    <a href="#contacto" class="nav-link"><i class="fas fa-phone-alt"></i> Contacto</a>
+                </nav>
                 
-                <div class="mobile-menu-btn" id="mobileMenuBtn">
-                    <i class="fas fa-bars"></i>
+                <div class="header-actions">
+                    <button class="btn-cart" id="cartBtn">
+                        <i class="fas fa-shopping-basket"></i>
+                        <span class="cart-count">3</span>
+                    </button>
+                    <button class="btn-menu" id="menuBtn">
+                        <i class="fas fa-bars"></i>
+                    </button>
                 </div>
-            </nav>
+            </div>
         </div>
     </header>
 
-    <!-- Hero Section con efectos -->
-    <section class="hero" id="inicio">
-        <div class="hero-content">
-            <h1 class="hero-title animate-fade-up">Auténticos Sabores de <span class="highlight">La Habana</span></h1>
-            <p class="hero-subtitle animate-fade-up-delay">Productos gourmet seleccionados con tradición cubana. Envíos a toda la ciudad.</p>
-            <a href="#productos" class="btn-primary animate-fade-up-delay-2">Ver Productos <i class="fas fa-arrow-down"></i></a>
-        </div>
-        
-        <div class="hero-images">
-            <div class="hero-img img-1 animate-float"></div>
-            <div class="hero-img img-2 animate-float-delay"></div>
-            <div class="hero-img img-3 animate-float-delay-2"></div>
-        </div>
-    </section>
+    <!-- Hero Slider -->
+    <section class="hero-slider" id="inicio">
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                <!-- Slide 1: Mercado Bayona 59 -->
+                <div class="swiper-slide slide-1">
+                    <div class="slide-content">
+                        <span class="slide-badge">¡Nuevo!</span>
+                        <h1 class="slide-title">Mercado <span class="highlight">Bayona 59</span></h1>
+                        <p class="slide-text">Tu tienda de confianza en La Habana. Productos frescos, calidad garantizada y los mejores precios.</p>
+                        <div class="slide-stats">
+                            <div class="stat">
+                                <i class="fas fa-users"></i>
+                                <span>+2000 clientes satisfechos</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-box-open"></i>
+                                <span>+150 productos disponibles</span>
+                            </div>
+                        </div>
+                        <a href="#mercado" class="btn-slide">Ver Productos <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="slide-image">
+                        <div class="image-circle"></div>
+                    </div>
+                </div>
 
-    <!-- Sección Productos Destacados -->
-    <section class="productos-section" id="productos">
-        <div class="container">
-            <div class="section-header animate-on-scroll">
-                <h2>Nuestros <span class="highlight">Productos</span></h2>
-                <p>Selección cuidadosa de lo mejor para tu mesa</p>
-            </div>
-            
-            <div class="productos-grid">
-                <!-- Producto 1 -->
-                <div class="producto-card animate-on-scroll">
-                    <div class="producto-img">
-                        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Café cubano premium" loading="lazy">
-                        <span class="producto-badge">Nuevo</span>
+                <!-- Slide 2: Materiales de Construcción -->
+                <div class="swiper-slide slide-2">
+                    <div class="slide-content">
+                        <span class="slide-badge">¡Oferta Especial!</span>
+                        <h1 class="slide-title">Cavillas de <span class="highlight">Acero</span></h1>
+                        <p class="slide-text">Materiales de construcción de primera calidad. Perfectos para tus proyectos.</p>
+                        <div class="slide-features">
+                            <div class="feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Alta resistencia</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Diferentes medidas</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Precios por mayor y menor</span>
+                            </div>
+                        </div>
+                        <a href="#construccion" class="btn-slide">Ver Cavillas <i class="fas fa-arrow-right"></i></a>
                     </div>
-                    <div class="producto-info">
-                        <h3>Café Cubano Premium</h3>
-                        <p class="producto-desc">Café 100% arábico cultivado en las montañas de Cuba.</p>
-                        <div class="producto-precio">$15.99 <span class="producto-unidad">/ 500g</span></div>
-                        <button class="btn-agregar" data-producto="cafe-cubano" data-precio="15.99">
-                            <i class="fas fa-plus"></i> Añadir al carrito
-                        </button>
-                    </div>
-                </div>
-                
-                <!-- Producto 2 -->
-                <div class="producto-card animate-on-scroll">
-                    <div class="producto-img">
-                        <img src="https://images.unsplash.com/photo-1553361371-9b22f78e8b1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Ron añejo cubano" loading="lazy">
-                    </div>
-                    <div class="producto-info">
-                        <h3>Ron Añejo 7 Años</h3>
-                        <p class="producto-desc">Ron cubano envejido en barricas de roble. Sabor suave y aromático.</p>
-                        <div class="producto-precio">$24.99 <span class="producto-unidad">/ 750ml</span></div>
-                        <button class="btn-agregar" data-producto="ron-anejo" data-precio="24.99">
-                            <i class="fas fa-plus"></i> Añadir al carrito
-                        </button>
+                    <div class="slide-image">
+                        <div class="image-square"></div>
                     </div>
                 </div>
-                
-                <!-- Producto 3 -->
-                <div class="producto-card animate-on-scroll">
-                    <div class="producto-img">
-                        <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Miel natural cubana" loading="lazy">
-                        <span class="producto-badge destacado">Destacado</span>
+
+                <!-- Slide 3: Combo de Alimentos -->
+                <div class="swiper-slide slide-3">
+                    <div class="slide-content">
+                        <span class="slide-badge">Combo Exclusivo</span>
+                        <h1 class="slide-title">Super <span class="highlight">Combo Familiar</span></h1>
+                        <p class="slide-text">Todo lo necesario para tu hogar en un solo paquete. ¡Ahorra hasta un 25%!</p>
+                        <ul class="combo-list">
+                            <li><i class="fas fa-beer"></i> Cerveza</li>
+                            <li><i class="fas fa-oil-can"></i> Aceite</li>
+                            <li><i class="fas fa-wine-bottle"></i> Refresco</li>
+                            <li><i class="fas fa-cow"></i> Leche Condensada</li>
+                            <li><i class="fas fa-weight"></i> Leche en polvo 1kg</li>
+                            <li><i class="fas fa-drumstick-bite"></i> Salchichas</li>
+                            <li><i class="fas fa-bacon"></i> Jamón</li>
+                            <li><i class="fas fa-drumstick-bite"></i> Pollo 10lb</li>
+                        </ul>
+                        <div class="price-tag">
+                            <span class="old-price">$150.00</span>
+                            <span class="current-price">$112.50</span>
+                        </div>
+                        <a href="#combos" class="btn-slide">Comprar Ahora <i class="fas fa-shopping-cart"></i></a>
                     </div>
-                    <div class="producto-info">
-                        <h3>Miel Natural Pura</h3>
-                        <p class="producto-desc">Miel 100% natural de abejas cubanas. Sin aditivos ni conservantes.</p>
-                        <div class="producto-precio">$9.99 <span class="producto-unidad">/ 350g</span></div>
-                        <button class="btn-agregar" data-producto="miel-natural" data-precio="9.99">
-                            <i class="fas fa-plus"></i> Añadir al carrito
-                        </button>
-                    </div>
-                </div>
-                
-                <!-- Producto 4 -->
-                <div class="producto-card animate-on-scroll">
-                    <div class="producto-img">
-                        <img src="https://images.unsplash.com/photo-1594041680534-e8c8cdebd659?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Conservas artesanales" loading="lazy">
-                    </div>
-                    <div class="producto-info">
-                        <h3>Conservas Artesanales</h3>
-                        <p class="producto-desc">Selección de conservas caseras: vegetales, frutas y condimentos.</p>
-                        <div class="producto-precio">$12.50 <span class="producto-unidad">/ unidad</span></div>
-                        <button class="btn-agregar" data-producto="conservas" data-precio="12.50">
-                            <i class="fas fa-plus"></i> Añadir al carrito
-                        </button>
+                    <div class="slide-image">
+                        <div class="image-combo"></div>
                     </div>
                 </div>
             </div>
             
-            <div class="text-center animate-on-scroll">
-                <a href="#catalogo" class="btn-secondary">Ver Catálogo Completo</a>
-            </div>
+            <!-- Controles del slider -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
         </div>
     </section>
 
-    <!-- Sección Nosotros -->
-    <section class="nosotros-section" id="nosotros">
+    <!-- Sección Combos Destacados -->
+    <section class="combos-section" id="combos">
         <div class="container">
-            <div class="nosotros-grid">
-                <div class="nosotros-img animate-on-scroll">
-                    <img src="https://images.unsplash.com/photo-1556909114-ff35346a06f9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Interior Bodegón Bayona 59" loading="lazy">
+            <div class="section-header">
+                <h2>Nuestros <span class="highlight">Combos</span> Destacados</h2>
+                <p>Paquetes especiales con todo lo que necesitas y al mejor precio</p>
+            </div>
+            
+            <div class="combos-grid">
+                <!-- Combo 1 -->
+                <div class="combo-card featured">
+                    <div class="combo-badge">Más Vendido</div>
+                    <div class="combo-header">
+                        <h3>Combo Familiar Premium</h3>
+                        <p class="combo-desc">Perfecto para familias de 4-5 personas</p>
+                    </div>
+                    <div class="combo-content">
+                        <ul class="combo-items">
+                            <li><i class="fas fa-check"></i> 2x Cerveza 355ml</li>
+                            <li><i class="fas fa-check"></i> Aceite Vegetal 1L</li>
+                            <li><i class="fas fa-check"></i> 6x Refresco en lata</li>
+                            <li><i class="fas fa-check"></i> Leche Condensada 395g</li>
+                            <li><i class="fas fa-check"></i> Leche en polvo 1kg</li>
+                            <li><i class="fas fa-check"></i> Salchichas 400g</li>
+                            <li><i class="fas fa-check"></i> Jamón 250g</li>
+                            <li><i class="fas fa-check"></i> Pollo entero 10lb</li>
+                        </ul>
+                        <div class="combo-price">
+                            <div class="price-info">
+                                <span class="price-old">$150.00</span>
+                                <span class="price-current">$112.50</span>
+                                <span class="price-save">Ahorras $37.50</span>
+                            </div>
+                            <button class="btn-combo">
+                                <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                            </button>
+                        </div>
+                    </div>
                 </div>
-                <div class="nosotros-content animate-on-scroll">
-                    <h2>Nuestra <span class="highlight">Historia</span> en La Habana</h2>
-                    <p>Desde nuestra ubicación en <strong>Bayona 59, La Habana</strong>, nos dedicamos a seleccionar los mejores productos gourmet con sello cubano.</p>
-                    <p>Somos un puente entre la tradición local y los paladares exigentes, ofreciendo calidad, autenticidad y el sabor único de nuestra tierra.</p>
-                    <div class="nosotros-stats">
-                        <div class="stat">
-                            <div class="stat-num" data-count="150">0</div>
-                            <div class="stat-label">Productos</div>
+
+                <!-- Combo 2 -->
+                <div class="combo-card">
+                    <div class="combo-badge">Nuevo</div>
+                    <div class="combo-header">
+                        <h3>Combo Básico Hogar</h3>
+                        <p class="combo-desc">Esenciales para el día a día</p>
+                    </div>
+                    <div class="combo-content">
+                        <ul class="combo-items">
+                            <li><i class="fas fa-check"></i> Aceite Vegetal 1L</li>
+                            <li><i class="fas fa-check"></i> 3x Refresco en lata</li>
+                            <li><i class="fas fa-check"></i> Leche Condensada 395g</li>
+                            <li><i class="fas fa-check"></i> Leche en polvo 500g</li>
+                            <li><i class="fas fa-check"></i> Salchichas 250g</li>
+                            <li><i class="fas fa-check"></i> Pollo 5lb</li>
+                        </ul>
+                        <div class="combo-price">
+                            <div class="price-info">
+                                <span class="price-old">$75.00</span>
+                                <span class="price-current">$56.25</span>
+                                <span class="price-save">Ahorras $18.75</span>
+                            </div>
+                            <button class="btn-combo">
+                                <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                            </button>
                         </div>
-                        <div class="stat">
-                            <div class="stat-num" data-count="12">0</div>
-                            <div class="stat-label">Años</div>
-                        </div>
-                        <div class="stat">
-                            <div class="stat-num" data-count="2000">0</div>
-                            <div class="stat-label">Clientes</div>
+                    </div>
+                </div>
+
+                <!-- Combo 3 -->
+                <div class="combo-card">
+                    <div class="combo-badge">Oferta</div>
+                    <div class="combo-header">
+                        <h3>Combo Carnes Selectas</h3>
+                        <p class="combo-desc">Para los amantes de la buena carne</p>
+                    </div>
+                    <div class="combo-content">
+                        <ul class="combo-items">
+                            <li><i class="fas fa-check"></i> Pollo entero 10lb</li>
+                            <li><i class="fas fa-check"></i> Carne de res 3lb</li>
+                            <li><i class="fas fa-check"></i> Cerdo 2lb</li>
+                            <li><i class="fas fa-check"></i> Salchichas 500g</li>
+                            <li><i class="fas fa-check"></i> Jamón 500g</li>
+                            <li><i class="fas fa-check"></i> Tocino 250g</li>
+                        </ul>
+                        <div class="combo-price">
+                            <div class="price-info">
+                                <span class="price-old">$120.00</span>
+                                <span class="price-current">$90.00</span>
+                                <span class="price-save">Ahorras $30.00</span>
+                            </div>
+                            <button class="btn-combo">
+                                <i class="fas fa-cart-plus"></i> Agregar al Carrito
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -159,29 +238,188 @@
         </div>
     </section>
 
-    <!-- Sección Contacto y Localización -->
-    <section class="contacto-section" id="contacto">
+    <!-- Sección Construcción -->
+    <section class="construction-section" id="construccion">
         <div class="container">
-            <div class="section-header animate-on-scroll">
-                <h2>Visítanos en <span class="highlight">La Habana</span></h2>
-                <p>Ven a conocer nuestros productos directamente en nuestra bodega</p>
+            <div class="section-header">
+                <h2>Materiales de <span class="highlight">Construcción</span></h2>
+                <p>Calidad y resistencia para tus proyectos</p>
             </div>
             
-            <div class="contacto-grid">
-                <div class="contacto-info animate-on-scroll">
-                    <h3><i class="fas fa-map-marker-alt"></i> Nuestra Ubicación</h3>
-                    <p><strong>Bodegón Bayona 59</strong><br>
-                    Calle Bayona #59, La Habana, Cuba</p>
+            <div class="construction-content">
+                <div class="construction-info">
+                    <h3>Cavillas de Acero</h3>
+                    <p class="construction-desc">
+                        Disponemos de cavillas de acero de alta resistencia en diferentes medidas. 
+                        Perfectas para trabajos de construcción, reparaciones y proyectos DIY.
+                    </p>
                     
-                    <h3><i class="fas fa-clock"></i> Horarios</h3>
-                    <p>Lunes a Viernes: 9:00 AM - 6:00 PM<br>
-                    Sábados: 9:00 AM - 2:00 PM<br>
-                    Domingos: Cerrado</p>
+                    <div class="specs-grid">
+                        <div class="spec">
+                            <i class="fas fa-ruler"></i>
+                            <div>
+                                <h4>Medidas Disponibles</h4>
+                                <p>1/4", 3/8", 1/2", 5/8", 3/4"</p>
+                            </div>
+                        </div>
+                        <div class="spec">
+                            <i class="fas fa-weight-hanging"></i>
+                            <div>
+                                <h4>Resistencia</h4>
+                                <p>Grado A36 (250 MPa)</p>
+                            </div>
+                        </div>
+                        <div class="spec">
+                            <i class="fas fa-boxes"></i>
+                            <div>
+                                <h4>Presentación</h4>
+                                <p>Por unidad o en packs</p>
+                            </div>
+                        </div>
+                        <div class="spec">
+                            <i class="fas fa-truck"></i>
+                            <div>
+                                <h4>Envío</h4>
+                                <p>Disponible en toda La Habana</p>
+                            </div>
+                        </div>
+                    </div>
                     
-                    <h3><i class="fas fa-phone-alt"></i> Contacto</h3>
-                    <p>Teléfono: +53 123 456 78<br>
-                    WhatsApp: +53 987 654 32<br>
-                    Email: info@bodegonbayona59.cu</p>
+                    <div class="pricing-info">
+                        <div class="price-card">
+                            <h4>Pack Básico</h4>
+                            <p class="price">$25.00</p>
+                            <p>10 unidades de 1/2"</p>
+                            <button class="btn-buy">Comprar</button>
+                        </div>
+                        <div class="price-card featured">
+                            <h4>Pack Profesional</h4>
+                            <p class="price">$45.00</p>
+                            <p>25 unidades variadas</p>
+                            <button class="btn-buy">Comprar</button>
+                        </div>
+                        <div class="price-card">
+                            <h4>Pack Mayorista</h4>
+                            <p class="price">$80.00</p>
+                            <p>50 unidades + descuento</p>
+                            <button class="btn-buy">Comprar</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="construction-image">
+                    <div class="image-container">
+                        <div class="bolt-icon">🔩</div>
+                        <div class="bolt-icon">⚙️</div>
+                        <div class="bolt-icon">🛠️</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Mercado -->
+    <section class="market-section" id="mercado">
+        <div class="container">
+            <div class="section-header">
+                <h2>Productos del <span class="highlight">Mercado</span></h2>
+                <p>Selección de los mejores productos para tu hogar</p>
+            </div>
+            
+            <div class="categories">
+                <button class="category-btn active">Todos</button>
+                <button class="category-btn">Lácteos</button>
+                <button class="category-btn">Carnes</button>
+                <button class="category-btn">Bebidas</button>
+                <button class="category-btn">Enlatados</button>
+                <button class="category-btn">Otros</button>
+            </div>
+            
+            <div class="products-grid">
+                <!-- Productos se cargarán dinámicamente -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <i class="fas fa-beer"></i>
+                    </div>
+                    <h3>Cerveza Nacional</h3>
+                    <p class="product-desc">355ml - Pack de 6</p>
+                    <div class="product-price">
+                        <span class="price">$12.00</span>
+                        <button class="btn-add"><i class="fas fa-plus"></i></button>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-img">
+                        <i class="fas fa-oil-can"></i>
+                    </div>
+                    <h3>Aceite Vegetal</h3>
+                    <p class="product-desc">1 Litro - Soja</p>
+                    <div class="product-price">
+                        <span class="price">$4.50</span>
+                        <button class="btn-add"><i class="fas fa-plus"></i></button>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-img">
+                        <i class="fas fa-wine-bottle"></i>
+                    </div>
+                    <h3>Refresco Cola</h3>
+                    <p class="product-desc">330ml - Pack de 12</p>
+                    <div class="product-price">
+                        <span class="price">$8.00</span>
+                        <button class="btn-add"><i class="fas fa-plus"></i></button>
+                    </div>
+                </div>
+                
+                <!-- Más productos... -->
+            </div>
+            
+            <div class="section-footer">
+                <a href="#" class="btn-view-all">Ver Todos los Productos <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Contacto -->
+    <section class="contact-section" id="contacto">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h2>¿Necesitas Ayuda?</h2>
+                    <p class="contact-desc">Contáctanos para asesoría personalizada y pedidos especiales</p>
+                    
+                    <div class="contact-methods">
+                        <div class="method">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h4>Ubicación</h4>
+                                <p>Calle Bayona #59, La Habana, Cuba</p>
+                            </div>
+                        </div>
+                        <div class="method">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h4>Teléfono</h4>
+                                <p>+53 123 456 78</p>
+                            </div>
+                        </div>
+                        <div class="method">
+                            <i class="fab fa-whatsapp"></i>
+                            <div>
+                                <h4>WhatsApp</h4>
+                                <p>+53 987 654 32</p>
+                            </div>
+                        </div>
+                        <div class="method">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <h4>Horario</h4>
+                                <p>Lun-Vie: 9am-6pm<br>Sáb: 9am-2pm</p>
+                            </div>
+                        </div>
+                    </div>
                     
                     <div class="whatsapp-cta">
                         <a href="https://wa.me/5398765432" class="btn-whatsapp" target="_blank">
@@ -190,32 +428,46 @@
                     </div>
                 </div>
                 
-                <div class="mapa animate-on-scroll">
-                    <!-- Mapa de Google Maps embed -->
-                    <div class="mapa-container">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3670.693580932938!2d-82.39165592504026!3d23.099126079136407!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88cd7e8c8b9a3c3b%3A0x5c81c165184b2f0c!2sLa%20Habana%2C%20Cuba!5e0!3m2!1ses!2ses!4v1698281738280!5m2!1ses!2ses" 
-                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Ubicación Bodegón Bayona 59 en La Habana"></iframe>
-                    </div>
+                <div class="contact-form">
+                    <h3>Envíanos un Mensaje</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" placeholder="Tu Nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" placeholder="Teléfono" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Tu Mensaje..." rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">
+                            <i class="fas fa-paper-plane"></i> Enviar Mensaje
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Carrito Flotante -->
-    <div class="carrito-flotante" id="carritoFlotante">
-        <div class="carrito-header">
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
             <h3><i class="fas fa-shopping-basket"></i> Tu Carrito</h3>
-            <button class="cerrar-carrito" id="cerrarCarrito">&times;</button>
+            <button class="btn-close" id="closeCart">&times;</button>
         </div>
-        <div class="carrito-items" id="carritoItems">
-            <!-- Items se añaden dinámicamente -->
-            <p class="carrito-vacio">Tu carrito está vacío</p>
-        </div>
-        <div class="carrito-footer">
-            <div class="carrito-total">
-                Total: $<span id="carritoTotal">0.00</span>
+        <div class="cart-items">
+            <div class="cart-empty">
+                <i class="fas fa-shopping-basket"></i>
+                <p>Tu carrito está vacío</p>
+                <a href="#combos" class="btn-shop">Ver Combos</a>
             </div>
-            <button class="btn-checkout" id="checkoutBtn">Finalizar Compra</button>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span class="total-amount">$0.00</span>
+            </div>
+            <button class="btn-checkout">Finalizar Compra</button>
         </div>
     </div>
 
@@ -225,13 +477,20 @@
             <div class="footer-grid">
                 <div class="footer-col">
                     <div class="logo">
-                        <span class="logo-text">Bodegón</span>
-                        <span class="logo-subtext">Bayona 59</span>
+                        <div class="logo-icon">🛒</div>
+                        <div class="logo-text">
+                            <span class="logo-main">BODEGÓN</span>
+                            <span class="logo-sub">BAYONA 59</span>
+                        </div>
                     </div>
-                    <p>Productos gourmet cubanos de la más alta calidad. Tradición y sabor en cada producto.</p>
-                    <div class="social-links">
+                    <p class="footer-desc">
+                        Tu tienda de confianza en La Habana. Combos especiales, materiales de construcción 
+                        y productos del mercado con la mejor calidad.
+                    </p>
+                    <div class="social-icons">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
                     </div>
                 </div>
@@ -240,38 +499,46 @@
                     <h4>Enlaces Rápidos</h4>
                     <ul>
                         <li><a href="#inicio">Inicio</a></li>
-                        <li><a href="#productos">Productos</a></li>
-                        <li><a href="#nosotros">Nosotros</a></li>
+                        <li><a href="#combos">Combos</a></li>
+                        <li><a href="#construccion">Construcción</a></li>
+                        <li><a href="#mercado">Mercado</a></li>
                         <li><a href="#contacto">Contacto</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-col">
-                    <h4>Políticas</h4>
+                    <h4>Información</h4>
                     <ul>
                         <li><a href="#">Términos y condiciones</a></li>
                         <li><a href="#">Política de privacidad</a></li>
                         <li><a href="#">Envíos y entregas</a></li>
+                        <li><a href="#">Preguntas frecuentes</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-col">
-                    <h4>Suscríbete</h4>
-                    <p>Recibe nuestras ofertas y novedades</p>
-                    <form class="newsletter-form" id="newsletterForm">
-                        <input type="email" placeholder="Tu correo electrónico" required>
-                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
-                    </form>
+                    <h4>Contacto</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> Bayona #59, La Habana</p>
+                        <p><i class="fas fa-phone"></i> +53 123 456 78</p>
+                        <p><i class="fab fa-whatsapp"></i> +53 987 654 32</p>
+                        <p><i class="fas fa-envelope"></i> info@bayona59.cu</p>
+                    </div>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2023 Bodegón Bayona 59 - La Habana, Cuba. Todos los derechos reservados.</p>
-                <p class="seo-text">Tienda online de productos gourmet cubanos | Venta de café cubano, ron añejo, miel natural y conservas artesanales | Envíos a toda La Habana | Dirección: Bayona 59, La Habana Vieja</p>
+                <p>&copy; 2024 Bodegón Bayona 59. Todos los derechos reservados.</p>
+                <p class="seo-text">
+                    Tienda online La Habana | Venta de combos de alimentos | Cavillas de acero | Productos del mercado | 
+                    Envíos en La Habana | Calidad garantizada | Los mejores precios
+                </p>
             </div>
         </div>
     </footer>
 
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
