@@ -3,7 +3,7 @@
 Sitio web oficial de Bodegón Bayona 59, tienda de combos, materiales de construcción y productos del mercado en La Habana, Cuba.
 
 ## 🌐 Sitio Web
-🔗 **https://jccarlos010277-cmd.github.io/bayona59/**
+🔗 https://jccarlos010277-cmd.github.io/bayona59/
 
 ## 🚀 Características
 - ✅ Slider interactivo con 3 promociones
@@ -30,5 +30,6 @@ Sitio web oficial de Bodegón Bayona 59, tienda de combos, materiales de constru
 - 📍 **Ubicación:** Calle Bayona #59, La Habana, Cuba
 - 📱 **WhatsApp:** +53 987 654 32
 - 🕒 **Horario:** Lunes a Viernes 9am-6pm
+
 
 ## 📁 Estructura del Proyecto
